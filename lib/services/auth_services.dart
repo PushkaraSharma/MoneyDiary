@@ -30,4 +30,45 @@ class AuthService{
     return user.uid;
   }
 
+  //SignOut
+  signOut(){
+    return _firebaseAuth.signOut();
+  }
+
+}
+
+// for signin and signup form validation
+class EmailValidator{
+  static String validate(String val){
+    if(val.isEmpty){
+      return "Email field can't be empty!! ";
+    }
+    return null;
+  }
+}
+class PasswordValidator{
+  static String validate(String val){
+    if(val.isEmpty){
+      return "Please insert the password!! ";
+    }
+    if(val.length<8){
+      return "Length of password should be more than 8 characters!!";
+    }
+    return null;
+  }
+}
+
+class NameValidator{
+  static String validate(String val){
+    if(val.isEmpty){
+      return "Name field can't be empty !! ";
+    }
+    if(val.length<2){
+      return "Length of name should be more than 2 characters!!";
+    }
+    if(val.length>50){
+      return "Length of name should be less than 50 characters!!";
+    }
+    return null;
+  }
 }
