@@ -13,15 +13,23 @@ class Home extends StatelessWidget {
       appBar: AppBar(title: Text('Home',),
       backgroundColor: Colors.lightBlue[300],
       actions: <Widget>[
-        FlatButton(onPressed: () async{
+        IconButton(icon: Icon(Icons.undo),
+          onPressed: () async{
           try{
             AuthService auth  = Provider.of(context).auth;
             await auth.signOut();
             print('Signed Out');
           }catch(e)
           {print(e.toString());}
-        },
-        child: Text('Logout',style: TextStyle(color: Colors.white),),)
+        }
+        ),
+    IconButton(icon: Icon(Icons.account_circle),
+    onPressed: (){
+      Navigator.of(context).pushNamed('/convertUser');
+      }
+    )
+
+
       ],
       ),
       body: Container(

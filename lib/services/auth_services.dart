@@ -1,8 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+
 
 class AuthService{
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   //for checking user signed in so bring directly to home or first_view
 
@@ -16,11 +20,15 @@ class AuthService{
     final FirebaseUser user = currentUser.user;
 
     //update uname
-    var userUpdateInfo = UserUpdateInfo();
+    await updatename(uname, user);
+    return user.uid;
+  }
+
+  Future updatename(String uname, FirebaseUser user) async {
+     var userUpdateInfo = UserUpdateInfo();
     userUpdateInfo.displayName = uname;
     await user.updateProfile(userUpdateInfo);
     await user.reload();
-    return user.uid;
   }
 
   //Email & pwd Signin
@@ -29,6 +37,28 @@ class AuthService{
     FirebaseUser user = currentuser.user;
     return user.uid;
   }
+
+  //Anonmous user
+  Future signInAnon(){
+    return _firebaseAuth.signInAnonymously();
+  }
+  Future convertUserWithEmail(String email,String password,String name)async{
+    final currentuser = await _firebaseAuth.currentUser();
+
+    final credential = EmailAuthProvider.getCredential(email: email,password: password);
+    await currentuser.linkWithCredential(credential);
+    await updatename(name, currentuser);
+  }
+
+  //googlesignIn
+  Future<String>signInwithGoogle() async{
+    final GoogleSignInAccount account = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication _googleAuth = await account.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(idToken: _googleAuth.idToken, accessToken: _googleAuth.accessToken);
+    final AuthResult authResult  = await _firebaseAuth.signInWithCredential(credential);
+    final FirebaseUser user = authResult.user;
+    return user.uid;
+   }
 
   //SignOut
   signOut(){

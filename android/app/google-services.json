@@ -8,41 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:37627038894:android:5cb1a2b6e5537c6817313f",
-        "android_client_info": {
-          "package_name": "com.example.flutter_app"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "37627038894-r2l9l5lpf2ka03qqrqsq0n55318grtpd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAvP2JroirfyvcICcWNBSc6PrpLHGw5o3I"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "37627038894-r2l9l5lpf2ka03qqrqsq0n55318grtpd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:37627038894:android:d8841894e769690317313f",
         "android_client_info": {
           "package_name": "com.example.money_diary"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "37627038894-diafd9aui33fe4qiv3l55s8o63gsfdct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.money_diary",
+            "certificate_hash": "aa9360e1b28de7b37199dc8dd2f060e21c014e3e"
+          }
+        },
         {
           "client_id": "37627038894-r2l9l5lpf2ka03qqrqsq0n55318grtpd.apps.googleusercontent.com",
           "client_type": 3

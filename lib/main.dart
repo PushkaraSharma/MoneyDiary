@@ -20,9 +20,11 @@ class MyApp extends StatelessWidget {
         ),
         home: Home_Control(),
         routes: <String,WidgetBuilder>{
+          '/home':(BuildContext context)=>Home_Control(),
           '/signUp':(BuildContext context)=>Signup_view(authFormType: AuthFormType.signUp,),
           '/signIn':(BuildContext context)=>Signup_view(authFormType: AuthFormType.signIn,),
-          '/home':(BuildContext context)=>Home_Control(),
+          '/anonmousSignIn':(BuildContext context)=>Signup_view(authFormType: AuthFormType.anonmous,),
+          '/convertUser':(BuildContext context)=>Signup_view(authFormType: AuthFormType.convertuser,),
         }
       ),
     );

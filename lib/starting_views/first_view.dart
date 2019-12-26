@@ -36,7 +36,7 @@ class FirstView extends StatelessWidget {
                     showDialog(context: context,builder: (BuildContext context)=>CustomDialog(title: 'Create free account',
                         descrip: 'With an account all your data will be saved securly,allowing you to access from multiple devices',
                         primaryButtonRoute: '/signUp', primaryButtonText: "Create My Account",
-                        secondButtonText: 'Maybe Later',secondButtonRoute: "/signUp",));
+                        secondButtonText: 'Maybe Later',secondButtonRoute: "/anonmousSignIn",));
                   },
                 ),
                 SizedBox(height: height*0.1,),
