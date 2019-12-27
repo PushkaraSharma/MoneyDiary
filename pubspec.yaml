@@ -34,6 +34,7 @@ dev_dependencies:
   flutter_spinkit: ^4.1.1+1
   flutter_auth_buttons: ^0.6.0
   google_sign_in: ^4.1.1
+  floating_search_bar: ^0.2.0
  # flutter_facebook_login: ^3.0.0
 
 

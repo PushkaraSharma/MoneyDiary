@@ -42,6 +42,15 @@ class AuthService{
   Future signInAnon(){
     return _firebaseAuth.signInAnonymously();
   }
+
+  Future checkAnonUser()async{
+    bool user = (await _firebaseAuth.currentUser()).isAnonymous;
+    print(user);
+    if(user){return true;}
+    else{return false;}
+  }
+
+  //anon user to normal user with email
   Future convertUserWithEmail(String email,String password,String name)async{
     final currentuser = await _firebaseAuth.currentUser();
 
@@ -58,6 +67,16 @@ class AuthService{
     final AuthResult authResult  = await _firebaseAuth.signInWithCredential(credential);
     final FirebaseUser user = authResult.user;
     return user.uid;
+   }
+
+
+   Future convertUserWithGoogle() async{
+     final currentUser = await _firebaseAuth.currentUser();
+     final GoogleSignInAccount account = await _googleSignIn.signIn();
+     final GoogleSignInAuthentication _googleAuth = await account.authentication;
+     final AuthCredential credential = GoogleAuthProvider.getCredential(idToken: _googleAuth.idToken, accessToken: _googleAuth.accessToken);
+     await currentUser.linkWithCredential(credential);
+     await updatename(_googleSignIn.currentUser.displayName, currentUser);
    }
 
   //SignOut

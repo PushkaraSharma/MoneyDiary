@@ -319,6 +319,10 @@ class _Signup_viewState extends State<Signup_view> {
           borderRadius: 20.0,
           onPressed: ()async{
             try{
+              if(authFormType == AuthFormType.convertuser){
+                await auth.convertUserWithGoogle();
+                Navigator.of(context).pop();
+              }
               await auth.signInwithGoogle();
               Navigator.of(context).pushReplacementNamed('/home');
 
