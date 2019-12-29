@@ -7,8 +7,8 @@ class CustomDialog extends StatelessWidget {
   CustomDialog({
     @required this.title,
     @required this.descrip,
-    @required this.primaryButtonRoute,
-    @required this.primaryButtonText,
+     this.primaryButtonRoute,
+    this.primaryButtonText,
     this.secondButtonRoute,this.secondButtonText
 });
   @override
@@ -16,7 +16,7 @@ class CustomDialog extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Stack(children: <Widget>[
-        Container(
+        Container(width: 800,
           padding: EdgeInsets.all(20.0),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -41,17 +41,7 @@ class CustomDialog extends StatelessWidget {
                 descrip,maxLines: 4,textAlign: TextAlign.center,style: TextStyle(color:Colors.grey,fontSize: 18.0),
               ),
               SizedBox(height: 20,),
-              RaisedButton(
-                color: primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10,5,10,5),
-                  child: AutoSizeText(primaryButtonText,maxLines:1,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
-                ),
-                onPressed: (){
-                  Navigator.of(context).pop();
-                  Navigator.of(context).pushReplacementNamed(primaryButtonRoute);
-                },
-              ),
+              showPrimaryButton(context),
               SizedBox(height: 10,),
               showSecondButton(context)
             ],
@@ -60,6 +50,25 @@ class CustomDialog extends StatelessWidget {
       ],),
     );
   }
+  showPrimaryButton(BuildContext context){
+    if(primaryButtonRoute!=null &&primaryButtonText!=null){
+      return  RaisedButton(
+          color: primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10,5,10,5),
+            child: AutoSizeText(primaryButtonText,maxLines:1,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
+          ),
+          onPressed: (){
+            Navigator.of(context).pop();
+            if(primaryButtonRoute=='/signUp'){
+              Navigator.of(context).pushReplacementNamed(primaryButtonRoute);}
+            //else{
+              //   Navigator.push(context, MaterialPageRoute(builder: (context)=>EditNote()));
+           // }
+          }
+          );}
+       else{return SizedBox(height: 0.0,);}
+     }
 
    showSecondButton(BuildContext context) {
     if(secondButtonRoute!=null && secondButtonText!=null){
@@ -71,6 +80,6 @@ class CustomDialog extends StatelessWidget {
               },
             );
   }
-  else{return SizedBox(height: 10.0,);}
+  else{return SizedBox(height: 0.0,);}
   }
 }
