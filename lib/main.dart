@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money_diary/services/auth_services.dart';
 import 'package:money_diary/starting_views/first_view.dart';
-import 'package:money_diary/home.dart';
+import 'package:money_diary/inner_views/home.dart';
 import 'package:money_diary/starting_views/signup_view.dart';
 import 'package:money_diary/widgets/provider_widget.dart';
 
