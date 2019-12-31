@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money_diary/widgets/provider_widget.dart';
 import 'package:money_diary/services/auth_services.dart';
-import 'package:floating_search_bar/floating_search_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:money_diary/inner_views/homePage.dart';
 import 'package:money_diary/inner_views/Page2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
                         ? 'https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png'
                         : user?.photoUrl}'),),
                   decoration: BoxDecoration(color: primaryColor)),
-              new ListTile(title: Text('Logout'), leading: Icon(Icons.person),
+              new ListTile(title: Text('Logout'), leading: Icon(FontAwesomeIcons.signOutAlt),trailing: Icon(Icons.arrow_forward_ios),
                 onTap: () async {
                   try {
                     AuthService auth = Provider.of(context).auth;
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: primaryColor,
         elevation: 0.0,
-        title: Text('Home'),
+        title: Text('Home'),centerTitle: true,
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search), onPressed: () {},)
         ],
@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
               icon: new Icon(Icons.explore), title: new Text('Explore')),
           BottomNavigationBarItem(
-              icon: new Icon(Icons.graphic_eq), title: new Text('Stats')),
+              icon: new Icon(FontAwesomeIcons.chartBar), title: new Text('Stats')),
         ],
       ),
       body: _children[_currentIndex],

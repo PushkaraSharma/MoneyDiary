@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:money_diary/services/auth_services.dart';
 import 'package:money_diary/widgets/provider_widget.dart';
@@ -105,7 +104,7 @@ class _Signup_viewState extends State<Signup_view> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SpinKitWave(color: Colors.white,),
-            Text('Loading',style: TextStyle(color: Colors.white),)
+            Text('Loading',style: TextStyle(color: Colors.white,fontFamily: 'Raleway'),)
           ],
         ),
       );
@@ -177,7 +176,7 @@ class _Signup_viewState extends State<Signup_view> {
     else{headerText = 'Create New Account';}
     return AutoSizeText(headerText, maxLines: 1,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 40, color: Colors.white),);
+              style: TextStyle(fontSize: 40, color: Colors.white,fontFamily: 'Cinzel'),);
   }
 
   List<Widget> inputforms() {
@@ -247,7 +246,7 @@ class _Signup_viewState extends State<Signup_view> {
     bool SocialSignInButtons = true;
 
     if(authFormType ==AuthFormType.signIn){
-      switchButtonsText = 'Dont have an account,Create One';
+      switchButtonsText = 'Dont have an account then CREATE NOW';
       newFormState = 'SignUp';
       submitButtonText = 'SignIn';
       showForgetPassword = true;
@@ -281,14 +280,14 @@ class _Signup_viewState extends State<Signup_view> {
           },
           child: Padding(
             padding: EdgeInsets.all(10.0),
-            child: Text(submitButtonText,style: TextStyle(fontSize: 20.0,fontWeight:FontWeight.w300 ),),
+            child: Text(submitButtonText,style: TextStyle(fontSize: 20.0,fontWeight:FontWeight.w300,fontFamily: 'Raleway'),),
           )
         ),
       ),
       SizedBox(height: 10,),
       showForgetPasswordButton(showForgetPassword),
       FlatButton(
-      child: Text(switchButtonsText,style: TextStyle(color: Colors.white),),
+      child: Text(switchButtonsText,style: TextStyle(color: Colors.white,fontFamily: 'Raleway'),),
       onPressed: (){
         switchFromState(newFormState);
       },),
@@ -301,7 +300,7 @@ class _Signup_viewState extends State<Signup_view> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
         child: FlatButton(
-          child: Text('Forgot Password?',style: TextStyle(color: Colors.white,),),
+          child: Text('Forgot Password?',style: TextStyle(color: Colors.white,fontFamily: 'Raleway'),),
           onPressed: (){
             setState(() => authFormType = AuthFormType.passwordReset);
           },

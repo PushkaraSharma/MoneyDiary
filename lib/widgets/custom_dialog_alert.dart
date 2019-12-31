@@ -34,11 +34,11 @@ class CustomDialog extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 20,),
               AutoSizeText(
-                title,maxLines: 2,textAlign: TextAlign.center,style: TextStyle(color: primaryColor,fontSize: 28.0,fontWeight:FontWeight.w600),
+                title,maxLines: 2,textAlign: TextAlign.center,style: TextStyle(color: primaryColor,fontSize: 28.0,fontWeight:FontWeight.w600,fontFamily: 'Raleway'),
               ),
               SizedBox(height: 15,),
               AutoSizeText(
-                descrip,maxLines: 4,textAlign: TextAlign.center,style: TextStyle(color:Colors.grey,fontSize: 18.0),
+                descrip,maxLines: 4,textAlign: TextAlign.center,style: TextStyle(color:Colors.grey,fontSize: 18.0,fontFamily: 'Raleway'),
               ),
               SizedBox(height: 20,),
               showPrimaryButton(context),
@@ -56,7 +56,7 @@ class CustomDialog extends StatelessWidget {
           color: primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10,5,10,5),
-            child: AutoSizeText(primaryButtonText,maxLines:1,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
+            child: AutoSizeText(primaryButtonText,maxLines:1,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,fontFamily: 'Raleway'),),
           ),
           onPressed: (){
             Navigator.of(context).pop();
@@ -73,7 +73,7 @@ class CustomDialog extends StatelessWidget {
    showSecondButton(BuildContext context) {
     if(secondButtonRoute!=null && secondButtonText!=null){
     return FlatButton(
-              child: AutoSizeText(secondButtonText,maxLines: 1,style: TextStyle(fontSize: 15,fontWeight: FontWeight.w400),),
+              child: AutoSizeText(secondButtonText,maxLines: 1,style: TextStyle(fontSize: 15,fontWeight: FontWeight.w400,fontFamily: 'Raleway'),),
               onPressed: (){
                 Navigator.of(context).pop();
                 Navigator.of(context).pushReplacementNamed(secondButtonRoute );

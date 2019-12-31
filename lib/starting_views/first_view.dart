@@ -21,16 +21,16 @@ class FirstView extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(height: height*0.1,),
-                Text('Welcome',style: TextStyle(fontSize: 46,fontWeight: FontWeight.bold,color: Colors.white),),
+                Text('Welcome',style: TextStyle(fontSize: 46,fontWeight: FontWeight.bold,color: Colors.white,fontFamily: 'Cinzel'),),
                 SizedBox(height: height*0.1,),
-                AutoSizeText('Lets put your daily earnings',maxLines: 2,textAlign: TextAlign.center,style: TextStyle(fontSize: 38,color: Colors.white),),
+                AutoSizeText('Lets put your daily earnings',maxLines: 2,textAlign: TextAlign.center,style: TextStyle(fontSize: 38,color: Colors.white,fontFamily: 'Raleway'),),
                 SizedBox(height: height*0.1,),
                 RaisedButton(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(30,15,30,15),
-                    child: Text('Lets Begin',style: TextStyle(color: primaryColor,fontWeight: FontWeight.w600,fontSize: 30),),
+                    child: Text('Lets Begin',style: TextStyle(color: primaryColor,fontWeight: FontWeight.w600,fontSize: 30,fontFamily: 'Cinzel'),),
                   ),
                   onPressed: (){
                     showDialog(context: context,builder: (BuildContext context)=>CustomDialog(title: 'Create free account',
@@ -41,7 +41,7 @@ class FirstView extends StatelessWidget {
                 ),
                 SizedBox(height: height*0.1,),
                 FlatButton(
-                  child: Text('Sign In',style: TextStyle(fontSize: 25),),
+                  child: Text('Sign In',style: TextStyle(fontSize: 25,fontFamily: 'Cinzel'),),
                   onPressed: (){
                     Navigator.of(context).pushReplacementNamed('/signIn');
                   },

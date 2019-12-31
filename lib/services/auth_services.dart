@@ -18,7 +18,6 @@ class AuthService{
   Future<String> getcurrentUserId() async{
     final  authResult  = await _firebaseAuth.currentUser();
     String userID = authResult.uid;
-    //print(userID);
     return userID;
   }
 
@@ -53,7 +52,6 @@ class AuthService{
 
   Future checkAnonUser()async{
     bool user = (await _firebaseAuth.currentUser()).isAnonymous;
-    print(user);
     if(user){return true;}
     else{return false;}
   }
