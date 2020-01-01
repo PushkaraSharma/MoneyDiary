@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:money_diary/widgets/provider_widget.dart';
 import 'package:money_diary/services/auth_services.dart';
@@ -75,11 +76,12 @@ class _HomeState extends State<Home> {
 
       backgroundColor: primaryColor,
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.transparent,
+        brightness: Brightness.dark,
         elevation: 0.0,
         title: Text('Home'),centerTitle: true,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.search), onPressed: () {},)
+         // IconButton(icon: Icon(Icons.search), onPressed: () {},)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
