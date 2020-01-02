@@ -7,7 +7,8 @@ import 'package:money_diary/inner_views/homePage.dart';
 import 'package:money_diary/inner_views/Page2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-final primaryColor = const Color(0xFFF48FB1);
+  final primaryColor = const Color(0xFFFFAB91);
+
 
 class Home extends StatefulWidget {
 
@@ -28,7 +29,6 @@ class _HomeState extends State<Home> {
   initUser()async{
     user = await auth.currentUser();
     useranon = user.isAnonymous;
-    print(useranon);
     setState(() {});
   }
 
@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return user==null?CircularProgressIndicator():Scaffold(
       drawer: new Drawer(
           child: new ListView(
             children: <Widget>[
@@ -70,7 +70,10 @@ class _HomeState extends State<Home> {
                 leading: Icon(Icons.settings),
                 trailing: Icon(Icons.arrow_forward_ios),
                 onTap: () {},),
-
+              /*ListTile(title: Text("Dark Mode"),
+                trailing: Switch(value: false,
+                  onChanged: (changeTheme){},),)
+*/
             ],
           )),
 

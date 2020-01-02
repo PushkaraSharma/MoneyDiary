@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:money_diary/services/auth_services.dart';
+import 'package:money_diary/widgets/loading_widget.dart';
 import 'package:money_diary/widgets/provider_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 
-final primaryColor = const Color(0xFFF48FB1);
+final primaryColor = const Color(0xFFFFAB91);
 enum AuthFormType{signIn,signUp,passwordReset,anonmous,convertuser}
 
 class Signup_view extends StatefulWidget {
@@ -23,6 +24,7 @@ class _Signup_viewState extends State<Signup_view> {
 
   AuthFormType authFormType;
   _Signup_viewState({this.authFormType});
+  bool loading = false;
 
   final formkey = GlobalKey<FormState>();
   String email, password,name,warning;
@@ -54,6 +56,7 @@ class _Signup_viewState extends State<Signup_view> {
       try {
         //ask provider for authservice as it is highest
         final auth = Provider.of(context).auth;
+        loading = true;
         switch(authFormType){
 
           case AuthFormType.signIn:
@@ -62,6 +65,7 @@ class _Signup_viewState extends State<Signup_view> {
             Navigator.of(context).pushReplacementNamed('/home');
             break;
           case AuthFormType.signUp:
+            loading = true;
             String uid = await auth.createUserWithEmailAndPassword(email, password, name);
             print('Created account for $uid');
             Navigator.of(context).pushReplacementNamed('/home');
@@ -97,7 +101,9 @@ class _Signup_viewState extends State<Signup_view> {
     final height = MediaQuery.of(context).size.height;
 
     if(authFormType ==AuthFormType.anonmous){
-      submitForm();//directly goes to home by just showing loading
+      submitForm();
+
+      //directly goes to home by just showing loading
       return Scaffold(
         backgroundColor: primaryColor,
         body: Column(
@@ -110,7 +116,7 @@ class _Signup_viewState extends State<Signup_view> {
       );
     }else
       {
-        return Scaffold(
+        return loading?Loading():Scaffold(
           body: Container(
             color: primaryColor,
             height: height,

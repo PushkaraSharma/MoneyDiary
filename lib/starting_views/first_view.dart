@@ -3,7 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:money_diary/widgets/custom_dialog_alert.dart';
 
 class FirstView extends StatelessWidget {
-  final primaryColor = const Color(0xFFF48FB1);
+  final primaryColor = const Color(0xFFFFAB91);
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 class CustomDialog extends StatelessWidget {
   final String title,descrip,primaryButtonText,primaryButtonRoute,secondButtonText,secondButtonRoute;
-  final primaryColor = const Color(0xFFF48FB1);
+  final primaryColor = const Color(0xFFFFAB91);
   CustomDialog({
     @required this.title,
     @required this.descrip,

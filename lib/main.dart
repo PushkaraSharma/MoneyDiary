@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
       auth: AuthService(),
       child: MaterialApp(
         title: "Money Diary",
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.lightBlue,
+          primaryColor: const Color(0xFFFFAB91),
+          primarySwatch: Colors.brown[400],
         ),
         home: Home_Control(),
         routes: <String,WidgetBuilder>{
