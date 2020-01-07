@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:money_diary/widgets/custom_dialog_alert.dart';
 
-class FirstView extends StatelessWidget {
-  final primaryColor = const Color(0xFFFFAB91);
+final primaryColor = const Color(0xFFFFAB91);
 
+class FirstView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
